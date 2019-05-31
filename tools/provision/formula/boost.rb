@@ -4,10 +4,10 @@ class Boost < AbstractOsqueryFormula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
   license "BSL-1.0"
-  url "https://downloads.sourceforge.net/project/boost/boost/1.66.0/boost_1_66_0.tar.bz2"
-  sha256 "5721818253e6a0989583192f96782c4a98eb6204965316df9f5ad75819225ca9"
+  url "https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.bz2"
+  sha256 "8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648b04406"
   head "https://github.com/boostorg/boost.git"
-  revision 200
+  revision 100
 
   bottle do
     root_url "https://osquery-packages.s3.amazonaws.com/bottles"

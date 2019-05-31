@@ -179,11 +179,14 @@ elseif(FREEBSD)
 endif()
 
 if(POSIX)
-  ADD_OSQUERY_LINK_CORE("boost_system")
-  ADD_OSQUERY_LINK_CORE("boost_filesystem")
-  ADD_OSQUERY_LINK_CORE("boost_thread")
-  ADD_OSQUERY_LINK_CORE("boost_context")
-  ADD_OSQUERY_LINK_ADDITIONAL("boost_regex")
+  set(BOOST_LIB_SUFFIX "-mt-x64")
+
+  foreach(BOOST_LIBRARY_COMPONENT "boost_system" "boost_filesystem"
+                                  "boost_thread" "boost_context")
+    ADD_OSQUERY_LINK_CORE("${BOOST_LIBRARY_COMPONENT}${BOOST_LIB_SUFFIX}")
+  endforeach()
+
+  ADD_OSQUERY_LINK_ADDITIONAL("boost_regex${BOOST_LIB_SUFFIX}")
 endif()
 
 if(LINUX OR FREEBSD)
