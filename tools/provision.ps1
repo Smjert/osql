@@ -432,7 +432,7 @@ function Install-ThirdParty {
   # List of our third party packages, hosted in our AWS S3 bucket
   $packages = @(
     "aws-sdk-cpp.1.4.55",
-    "boost-msvc14.1.66.0-r1",
+    "boost-msvc14.1.69.0-r1",
     "bzip2.1.0.6",
     "gflags-dev.2.2.1",
     "glog.0.3.5",
