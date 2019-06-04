@@ -9,7 +9,8 @@ The tools make low-level operating system analytics and monitoring both performa
 
 | Platform | Build status  | | | |
 |----------|---------------|---|---|---|
-MacOS 10.13  | [![Build Status](https://dev.azure.com/trailofbits/osql/_apis/build/status/osql?branchName=master&jobName=macOS1013Build)](https://dev.azure.com/trailofbits/osql/_build/latest?definitionId=4&branchName=master) | | **Homepage:** | https://osquery.io
+MacOS 10.13 (High Sierra) | [![Build Status](https://dev.azure.com/trailofbits/osql/_apis/build/status/osql?branchName=master&jobName=macOS1013Build)](https://dev.azure.com/trailofbits/osql/_build/latest?definitionId=4&branchName=master) | | **Homepage:** | https://osquery.io
+MacOS 10.14 (Mojave) | [![Build Status](https://dev.azure.com/trailofbits/osql/_apis/build/status/osql?branchName=master&jobName=macOS1014Build)](https://dev.azure.com/trailofbits/osql/_build/latest?definitionId=4&branchName=master) | | **Homepage:** | https://osquery.io
 CentOS 6.x | [![Build Status](https://dev.azure.com/trailofbits/osql/_apis/build/status/osql?branchName=master&jobName=CentOS6Build)](https://dev.azure.com/trailofbits/osql/_build/latest?definitionId=4&branchName=master) | | **Downloads:** | https://osquery.io/downloads
 CentOS 7.x | [![Build Status](https://dev.azure.com/trailofbits/osql/_apis/build/status/osql?branchName=master&jobName=CentOS7Build)](https://dev.azure.com/trailofbits/osql/_build/latest?definitionId=4&branchName=master) | | **Tables:** | https://osquery.io/schema
 Ubuntu 16.04 | [![Build Status](https://dev.azure.com/trailofbits/osql/_apis/build/status/osql?branchName=master&jobName=Ubuntu1604Build)](https://dev.azure.com/trailofbits/osql/_build/latest?definitionId=4&branchName=master) | | **Packs:** | [https://osquery.io/packs](https://github.com/facebook/osquery/tree/master/packs)

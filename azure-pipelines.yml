@@ -102,11 +102,32 @@ jobs:
         workingDirectory: $(Build.SourcesDirectory)/build
 
 
-# MACOS
+# MACOS (High Sierra)
   - job: macOS1013Build
 
     pool:
       vmImage: macos-10.13
+
+    steps:
+      - script: |
+          unset HOMEBREW_NO_AUTO_UPDATE
+          make sysprep
+        displayName: "Prepare the system, downloading and installing the necessary"
+
+      - script: make -j3
+        displayName: "Build osql"
+        env:
+          SKIP_BENCHMARKS: 1
+
+      - script: /usr/local/osquery/bin/ctest --build-nocmake -V
+        displayName: "Run tests"
+        workingDirectory: $(Build.SourcesDirectory)/build/darwin
+
+# MACOS (Mojave)
+  - job: macOS1014Build
+
+    pool:
+      vmImage: macos-10.14
 
     steps:
       - script: |
