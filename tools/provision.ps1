@@ -22,6 +22,7 @@ param(
 
 # URL of where our pre-compiled third-party dependenices are archived
 $THIRD_PARTY_ARCHIVE_URL = 'https://osquery-packages.s3.amazonaws.com/choco'
+$OSQL_THIRD_PARTY_ARCHIVE_URL = 'https://osql-packages.nyc3.digitaloceanspaces.com/choco'
 
 # Make a best effort to dot-source our utils script
 $utils = Join-Path $(Get-Location) '.\tools\provision\chocolatey\osquery_utils.ps1'
@@ -471,7 +472,13 @@ function Install-ThirdParty {
       } else {
         Write-Host " => Did not find. Installing $packageName $packageVersion" -foregroundcolor Cyan
       }
-      $downloadUrl = "$THIRD_PARTY_ARCHIVE_URL/$package.nupkg"
+
+      if ($package.StartsWith("boost-msvc")) {
+        $downloadUrl = "$OSQL_THIRD_PARTY_ARCHIVE_URL/$package.nupkg"
+      } else {
+        $downloadUrl = "$THIRD_PARTY_ARCHIVE_URL/$package.nupkg"
+      }
+
       $tmpFilePath = Join-Path $tmpDir "$package.nupkg"
       Write-Host " => Downloading $downloadUrl" -foregroundcolor DarkCyan
       Try {
