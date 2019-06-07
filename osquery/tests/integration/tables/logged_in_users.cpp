@@ -21,12 +21,6 @@ namespace osquery {
 class LoggedInUsersTest : public IntegrationTableTest {};
 
 TEST_F(LoggedInUsersTest, sanity) {
-
-#ifdef OSQUERY_WINDOWS
-  LOG(INFO) << "Test failing on Windows, temporarily disabled";
-  return;
-#endif
-
   auto const rows = execute_query("select * from logged_in_users");
   auto const row_map = ValidatatioMap{
       {"type", NonEmptyString},
@@ -34,7 +28,12 @@ TEST_F(LoggedInUsersTest, sanity) {
       {"tty", NormalType},
       {"host", NormalType},
       {"time", NonNegativeInt},
+#ifdef OSQUERY_WINDOWS
+      {"pid", NonNegativeOrErrorInt},
+#else
       {"pid", NonNegativeInt},
+#endif
+
   };
   validate_rows(rows, row_map);
 }
