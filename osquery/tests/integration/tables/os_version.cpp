@@ -21,11 +21,6 @@ class OsVersion : public IntegrationTableTest {};
 
 TEST_F(OsVersion, test_sanity) {
 
-#if defined OSQUERY_WINDOWS || defined OSQUERY_LINUX
-  LOG(INFO) << "Test failing on Windows and Linux, temporarily disabled";
-  return;
-#endif
-
   QueryData data = execute_query("select * from os_version");
 
   ASSERT_EQ(data.size(), 1ul);
@@ -35,13 +30,21 @@ TEST_F(OsVersion, test_sanity) {
       {"version", NonEmptyString},
       {"major", NonNegativeInt},
       {"minor", NonNegativeInt},
+#ifdef OSQUERY_WINDOWS
+      {"patch", NormalType},
+#else
       {"patch", NonNegativeInt},
+#endif
+#ifdef OSQUERY_LINUX
+      {"build", NormalType},
+#else
       {"build", NonEmptyString},
+#endif
       {"platform", NonEmptyString},
       {"platform_like", NonEmptyString},
       {"codename", NormalType},
 #ifdef OSQUERY_WINDOWS
-      {"installdate", NonEmptyString},
+      {"install_date", NonEmptyString},
 #endif
   };
   validate_rows(data, row_map);
