@@ -1,5 +1,6 @@
 trigger:
 - master
+- alessandro/fix/42/macos-mojave-build-fix
 
 jobs:
 
